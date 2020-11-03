@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Backup/Themes/Price.tres" type="StyleBox" id=1]
+[ext_resource path="res://Fonts/economica/Economica-Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Label
+
+var stylePriceHighlighted = preload(\"res://Backup/Themes/PriceHighlighted.tres\")
+var stylePrice = preload(\"res://Backup/Themes/Price.tres\")
+
+var highlighted:=false setget highlight
+
+func _ready():
+	pass
+
+func highlight(value):
+	if value:
+		set(\"custom_colors/font_color\", \"#ffffff\")
+		set(\"custom_styles/normal\",stylePriceHighlighted)
+	else:
+		set(\"custom_colors/font_color\", \"#a3adb8\")
+		set(\"custom_styles/normal\",stylePrice)
+"
+
+[node name="Price" type="Label"]
+anchor_left = 0.355932
+anchor_top = 0.161765
+anchor_right = 0.652542
+anchor_bottom = 0.367647
+margin_right = -233.729
+margin_bottom = -53.5292
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/normal = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.639216, 0.678431, 0.721569, 1 )
+text = "$50"
+align = 1
+valign = 1
+uppercase = true
+script = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}

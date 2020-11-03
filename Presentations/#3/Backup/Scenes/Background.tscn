@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+var highlighted:=false setget highlight
+
+func _ready():
+	pass
+
+func highlight(value):
+	if value:
+		$BackgroundHighlighted.show()
+		$Background.hide()
+	else:
+		$BackgroundHighlighted.hide()
+		$Background.show()
+"
+
+[node name="Background" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundHighlighted" type="VBoxContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundHighlighted"]
+margin_right = 1024.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 0, 90 )
+mouse_filter = 1
+size_flags_horizontal = 3
+color = Color( 0.929412, 0.333333, 0.396078, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="BackgroundHighlighted"]
+margin_top = 90.0
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.960784, 0.968627, 0.976471, 1 )
+
+[node name="Background" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+margin_right = 1024.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 0, 90 )
+mouse_filter = 1
+size_flags_horizontal = 3
+color = Color( 0.960784, 0.968627, 0.976471, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Background"]
+margin_top = 90.0
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3

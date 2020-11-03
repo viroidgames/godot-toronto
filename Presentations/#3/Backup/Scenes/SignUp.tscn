@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/open-sans/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Backup/Themes/SignUp.tres" type="StyleBox" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+font_data = ExtResource( 1 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Button
+
+var styleSignUpHighlighted = preload(\"res://Backup/Themes/SignUpHighlighted.tres\")
+var styleSignUp = preload(\"res://Backup/Themes/SignUp.tres\")
+
+var highlighted:=false setget highlight
+
+func _ready():
+	pass
+
+func highlight(value):
+	if value:
+		set(\"custom_colors/font_color\", \"#ffffff\")
+		set(\"custom_styles/normal\",styleSignUpHighlighted)
+	else:
+		set(\"custom_colors/font_color\", \"#a3adb8\")
+		set(\"custom_styles/normal\",styleSignUp)
+		
+"
+
+[node name="SignUp" type="Button"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -66.0
+margin_top = -74.0
+margin_right = 74.0
+margin_bottom = -32.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_styles/normal = ExtResource( 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.639216, 0.678431, 0.721569, 1 )
+text = "SIGN UP"
+script = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
