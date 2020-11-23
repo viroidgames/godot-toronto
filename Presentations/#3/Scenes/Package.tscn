@@ -1,0 +1,121 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Fonts/open-sans/OpenSans-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/economica/Economica-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Fonts/open-sans/OpenSans-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/Package.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/SignUp.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.890196, 0.890196, 0.905882, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 14
+font_data = ExtResource( 3 )
+
+[node name="Package" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -784.0
+margin_bottom = -240.0
+size_flags_horizontal = 3
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+margin_right = 240.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 0, 90 )
+mouse_filter = 1
+color = Color( 0.960784, 0.968627, 0.976471, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer"]
+margin_top = 90.0
+margin_right = 240.0
+margin_bottom = 360.0
+mouse_filter = 1
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.639216, 0.678431, 0.721569, 1 )
+text = "STANDARD"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -35.0
+margin_top = 55.0
+margin_right = 35.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 70, 70 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.639216, 0.678431, 0.721569, 1 )
+text = "$30"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Features" type="RichTextLabel" parent="."]
+margin_left = 16.0
+margin_top = 138.0
+margin_right = 223.0
+margin_bottom = 254.0
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
+custom_colors/default_color = Color( 0.639216, 0.678431, 0.721569, 1 )
+custom_constants/line_separation = 4
+bbcode_enabled = true
+bbcode_text = "[center][b]5[/b] Projects
+[b]10[/b] Users
+[b]10 GB[/b] amount of space
+[b]5[/b] Email account[/center]"
+text = "5 Projects
+10 Users
+10 GB amount of space
+5 Email account"
+
+[node name="SignUp" parent="." instance=ExtResource( 5 )]
+[connection signal="mouse_entered" from="." to="." method="_on_Package_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Package_mouse_exited"]
