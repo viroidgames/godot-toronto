@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Weapon.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://Scripts/Weapon.gd\"
+
+func do_damage():
+	print(10)
+	return 10	
+"
+
+[node name="SquareWeapon" instance=ExtResource( 1 )]
+script = SubResource( 1 )

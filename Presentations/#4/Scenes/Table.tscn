@@ -1,0 +1,32 @@
+[gd_scene format=2]
+
+[node name="Table" type="CSGCombiner"]
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76404, 0 )
+height = 0.14
+depth = 4.0
+
+[node name="Leg1" type="CSGBox" parent="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, -0.864042, 1.7 )
+width = 0.2
+height = 1.8
+depth = 0.2
+
+[node name="Leg2" type="CSGBox" parent="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, -0.864042, -1.7 )
+width = 0.2
+height = 1.8
+depth = 0.2
+
+[node name="Leg3" type="CSGBox" parent="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.864042, 1.7 )
+width = 0.2
+height = 1.8
+depth = 0.2
+
+[node name="Leg4" type="CSGBox" parent="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.864042, -1.7 )
+width = 0.2
+height = 1.8
+depth = 0.2
